@@ -42,11 +42,21 @@ public class Fraction {
          // create a new instance
          // Fraction *frac = [[Fraction alloc] init];
          Fraction frac = new Fraction();
-
-         // set the values
-         frac.setNumerator(1);
-         frac.setDenominator(3);
-
+         
+          //Try task completion
+         if(args.length == 2){
+            try{
+            frac.setNumerator(Integer.parseInt(args[0]));
+            frac.setDenominator(Integer.parseInt(args[0]));
+            catch (Exception e){
+               System.out.println("Arguments: " + args[0] + ", " + args[1] + " must be integers.");
+               System.exit(1);   
+            }
+            else{
+               // set the values
+               frac.setNumerator(1);
+               frac.setDenominator(3);
+            }
          // print it
          System.out.print("The fraction is: ");
          frac.print();
