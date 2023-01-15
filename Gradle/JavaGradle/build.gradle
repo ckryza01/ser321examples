@@ -41,6 +41,20 @@ task runAppAgain(type: JavaExec) {
   }
 }
 
+task runTryTask(type: JavaExec){
+  group 'Fraction Tasks'
+  description 'The try task for fractions where it accepts arguments'
+  
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'Fraction'
+  
+  if (project.hasProperty("num1") && project.hasProperty("num2")) {
+    args(project.getProperty('num1'), project.getProperty('num2'));
+  } else if (project.hasProperty("num1")){
+    args(project.getProperty('num1'), 1);
+  }
+}
+
 // task that runs the Fraction Main which does not use arguments: gradle runFraction
 task runFraction(type: JavaExec) {
   group 'Fraction Tasks'
